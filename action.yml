@@ -1,7 +1,7 @@
 name: 'Get PR Number'
 description: 'Get PR number from a string'
 inputs:
-  pr:
+  pr_string:
     description: 'The string to extract PR number from'
     required: true
 outputs:
