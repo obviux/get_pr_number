@@ -1,0 +1,20 @@
+name: 'Get PR Number'
+description: 'Get PR number from a string'
+inputs:
+  pr:
+    description: 'The string to extract PR number from'
+    required: true
+outputs:
+  pr_number:
+    description: 'The extracted PR number'
+runs:
+  using: 'composite'
+  steps:
+    - run: echo "Input: "
+      shell: bash
+    - run: echo ${{ inputs.pr }}
+      shell: bash
+    - run: echo "running script"
+      shell: bash
+    - run: bash get_pr_number.sh ${{ inputs.pr_string }}
+      shell: bash
