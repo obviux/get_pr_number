@@ -7,10 +7,12 @@ inputs:
 outputs:
   pr_number:
     description: 'The extracted PR number'
+    value: ${{ steps.get_pr_number.outputs.pr_number }}
 runs:
   using: 'composite'
   steps:
     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
       shell: bash
     - run: bash get_pr_number.sh ${{ inputs.pr_string }}
+      id: get_pr_number
       shell: bash
