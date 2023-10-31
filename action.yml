@@ -14,6 +14,10 @@ runs:
       shell: bash
     - run: echo ${{ inputs.pr }}
       shell: bash
+    - run: echo 'Add path to find shell script.'
+      shell: bash
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
     - run: echo running script
       shell: bash
     - run: bash get_pr_number.sh ${{ inputs.pr_string }}
