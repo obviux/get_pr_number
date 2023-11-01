@@ -1,0 +1,19 @@
+name: Release management
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release-management:
+    runs-on: ubuntu-latest
+    concurrency: release
+    steps:
+      - name: Manage release
+        uses: GoogleCloudPlatform/release-please-action@v2
+        id: release
+        with:
+          token: ${{ secrets.ME_BOT_TOKEN }}
+          release-type: simple
+          changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}, {"type":"refactor","section":"Miscellaneous","hidden":false}]'
