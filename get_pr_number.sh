@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 # Check if no arguments were provided
 if [ $# -eq 0 ]; then
